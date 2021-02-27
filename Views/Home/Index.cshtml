@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Cookie>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Shop</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/css/site.css" rel="stylesheet"/>
+</head>
+<body>   
+    <div class="container pt-4 grid">
+        <div class="row">
+        @foreach (var item in Model)
+        {
+            <form class="box col-sm-12 col-md-3" method="post">
+                <a asp-action="Detalhes"  asp-route-user="2"  asp-route-id="@item.id"><div class="img"></div></a>
+                <p>@Html.DisplayFor(modelItem => item.nome)</p>
+                <p>R$ @Html.DisplayFor(modelItem => item.preco)</p>
+                <button asp-action="FazerPedido" asp-controller="Home" asp-route-id="@item.id" asp-route-user="2" class="btn btn-success">Comprar!</button>
+            </form>
+        }
+        </div>
+    </div>
+</body>
+</html>

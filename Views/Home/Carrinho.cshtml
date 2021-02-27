@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Cookie>
+
+
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome:</th>
+                    <th>quantidade:</th>
+                    <th>Preço:</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                 <tr>
+                     <td>@Html.DisplayFor(modelItem => item.nome)</td>
+                     <td>@Html.DisplayFor(modelItem => item.quantidade)</td>
+                     <td>R$ @Html.DisplayFor(modelItem => item.preco)</td>
+                 </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
